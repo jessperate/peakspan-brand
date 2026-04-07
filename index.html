@@ -1,0 +1,1455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PeakSpan Capital — Brand Style Guide</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Roboto+Mono:wght@100..700&display=swap" rel="stylesheet">
+  <style>
+    /* ============================================
+       PeakSpan Capital — Brand Tokens
+       ============================================ */
+    :root {
+      /* Brand Blues */
+      --ps-050: #f1fdff;
+      --ps-100: #e3f9fd;
+      --ps-200: #d7f2f9;
+      --ps-300: #a0ddff;
+      --ps-400: #12dbff;
+      --ps-600: #007dc9;
+      --ps-800: #074469;
+
+      /* Brand Accents */
+      --ps-yellow: #fff879;
+      --ps-orange: #ffc972;
+      --ps-purple: #b9b8ff;
+      --ps-seafoam: #4aeadc;
+
+      /* Secondary Greens */
+      --ps-green-200: #e4ffe6;
+      --ps-green-500: #00ff11;
+      --ps-green-800: #1c5040;
+
+      /* Neutrals */
+      --ps-white: #ffffff;
+      --ps-light-200: #e2edef;
+      --ps-neutral-200: #f6f6ee;
+      --ps-neutral-300: #dfded0;
+      --ps-dark-800: #074469;
+      --ps-dark-900: #042d46;
+      --ps-text: #222222;
+      --ps-text-secondary: #555555;
+
+      /* Typography */
+      --font-sans: 'DM Sans', Arial, sans-serif;
+      --font-slab: 'Montagu Slab', Georgia, serif;
+      --font-mono: 'Roboto Mono', 'Trebuchet MS', monospace;
+
+      /* Spacing */
+      --space-xs: 8px;
+      --space-sm: 16px;
+      --space-md: 24px;
+      --space-lg: 40px;
+      --space-xl: 64px;
+      --space-2xl: 96px;
+
+      /* Radius */
+      --radius-sm: 4px;
+      --radius-md: 8px;
+      --radius-lg: 16px;
+      --radius-pill: 100px;
+    }
+
+    /* ============================================
+       Reset & Base
+       ============================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html {
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      color: var(--ps-text);
+      background: var(--ps-white);
+      line-height: 1.6;
+    }
+
+    img { max-width: 100%; display: block; }
+    a { color: var(--ps-600); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ============================================
+       Layout
+       ============================================ */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 var(--space-md);
+    }
+
+    .section {
+      padding: var(--space-2xl) 0;
+    }
+
+    .section + .section {
+      border-top: 1px solid var(--ps-light-200);
+    }
+
+    .section-title {
+      font-family: var(--font-slab);
+      font-size: 38px;
+      font-weight: 600;
+      line-height: 1.15;
+      color: var(--ps-dark-800);
+      margin-bottom: var(--space-xs);
+    }
+
+    .section-subtitle {
+      font-size: 18px;
+      color: var(--ps-text-secondary);
+      margin-bottom: var(--space-lg);
+      max-width: 640px;
+    }
+
+    .subsection {
+      margin-top: var(--space-xl);
+    }
+
+    .subsection-title {
+      font-family: var(--font-sans);
+      font-size: 24px;
+      font-weight: 600;
+      color: var(--ps-dark-800);
+      margin-bottom: var(--space-sm);
+    }
+
+    /* ============================================
+       Hero
+       ============================================ */
+    .hero {
+      background: var(--ps-dark-800);
+      color: var(--ps-white);
+      padding: var(--space-2xl) 0 var(--space-xl);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(18,219,255,0.15) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero .container {
+      position: relative;
+    }
+
+    .hero-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ps-400);
+      margin-bottom: var(--space-sm);
+    }
+
+    .hero-title {
+      font-family: var(--font-slab);
+      font-size: clamp(40px, 6vw, 72px);
+      font-weight: 600;
+      line-height: 1.05;
+      margin-bottom: var(--space-md);
+    }
+
+    .hero-title span {
+      color: var(--ps-400);
+    }
+
+    .hero-description {
+      font-size: 20px;
+      line-height: 1.5;
+      color: var(--ps-200);
+      max-width: 560px;
+    }
+
+    /* ============================================
+       Nav (simple inline)
+       ============================================ */
+    .nav {
+      position: sticky;
+      top: 0;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border-bottom: 2px solid var(--ps-400);
+      z-index: 100;
+      padding: var(--space-sm) 0;
+    }
+
+    .nav .container {
+      display: flex;
+      align-items: center;
+      gap: var(--space-md);
+      overflow-x: auto;
+    }
+
+    .nav-brand {
+      font-family: var(--font-slab);
+      font-weight: 700;
+      font-size: 18px;
+      color: var(--ps-dark-800);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: var(--space-sm);
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--ps-text-secondary);
+      white-space: nowrap;
+      padding: 4px 8px;
+      border-radius: var(--radius-sm);
+      transition: color 0.2s, background 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--ps-dark-800);
+      background: var(--ps-100);
+      text-decoration: none;
+    }
+
+    /* ============================================
+       Color Swatches
+       ============================================ */
+    .swatch-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: var(--space-sm);
+    }
+
+    .swatch {
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1px solid var(--ps-light-200);
+    }
+
+    .swatch-color {
+      height: 100px;
+      display: flex;
+      align-items: flex-end;
+      padding: var(--space-xs);
+    }
+
+    .swatch-info {
+      padding: var(--space-xs) var(--space-sm);
+      background: var(--ps-white);
+    }
+
+    .swatch-name {
+      font-weight: 600;
+      font-size: 14px;
+      color: var(--ps-text);
+    }
+
+    .swatch-hex {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      color: var(--ps-text-secondary);
+    }
+
+    .swatch-token {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--ps-text-secondary);
+      opacity: 0.7;
+    }
+
+    /* ============================================
+       Typography Samples
+       ============================================ */
+    .type-sample {
+      padding: var(--space-md) 0;
+      border-bottom: 1px solid var(--ps-light-200);
+    }
+
+    .type-sample:last-child { border-bottom: none; }
+
+    .type-sample-label {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--ps-400);
+      margin-bottom: var(--space-xs);
+    }
+
+    .type-sample-meta {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--ps-text-secondary);
+      margin-top: var(--space-xs);
+    }
+
+    .type-h1 {
+      font-family: var(--font-slab);
+      font-size: 72px;
+      font-weight: 600;
+      line-height: 1.05;
+      color: var(--ps-dark-800);
+    }
+
+    .type-h2 {
+      font-family: var(--font-slab);
+      font-size: 38px;
+      font-weight: 600;
+      line-height: 1.15;
+      color: var(--ps-dark-800);
+    }
+
+    .type-h3 {
+      font-family: var(--font-slab);
+      font-size: 32px;
+      font-weight: 600;
+      line-height: 1.12;
+      color: var(--ps-dark-800);
+    }
+
+    .type-h4 {
+      font-family: var(--font-sans);
+      font-size: 24px;
+      font-weight: 600;
+      line-height: 1.25;
+      color: var(--ps-dark-800);
+    }
+
+    .type-h5 {
+      font-family: var(--font-sans);
+      font-size: 18px;
+      font-weight: 600;
+      line-height: 1.33;
+      color: var(--ps-dark-800);
+    }
+
+    .type-body {
+      font-family: var(--font-sans);
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--ps-text);
+    }
+
+    .type-body-sm {
+      font-family: var(--font-sans);
+      font-size: 14px;
+      line-height: 1.43;
+      color: var(--ps-text);
+    }
+
+    .type-mono {
+      font-family: var(--font-mono);
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--ps-text);
+    }
+
+    .type-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ps-600);
+    }
+
+    /* ============================================
+       Buttons
+       ============================================ */
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+      align-items: center;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-family: var(--font-sans);
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 1;
+      padding: 14px 28px;
+      border: 2px solid transparent;
+      border-radius: var(--radius-pill);
+      cursor: pointer;
+      transition: all 0.25s ease;
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background: var(--ps-400);
+      color: var(--ps-dark-800);
+    }
+    .btn-primary:hover {
+      background: #00c4e6;
+      text-decoration: none;
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--ps-dark-800);
+      border-color: var(--ps-400);
+    }
+    .btn-secondary:hover {
+      background: var(--ps-100);
+      text-decoration: none;
+    }
+
+    .btn-dark {
+      background: var(--ps-dark-800);
+      color: var(--ps-white);
+    }
+    .btn-dark:hover {
+      background: var(--ps-dark-900);
+      text-decoration: none;
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--ps-600);
+      padding: 14px 16px;
+    }
+    .btn-ghost:hover {
+      color: var(--ps-dark-800);
+      text-decoration: none;
+    }
+
+    .btn-sm {
+      font-size: 14px;
+      padding: 10px 20px;
+    }
+
+    /* Dark context buttons */
+    .dark-ctx .btn-primary {
+      background: var(--ps-400);
+      color: var(--ps-dark-800);
+    }
+    .dark-ctx .btn-secondary {
+      border-color: var(--ps-400);
+      color: var(--ps-white);
+    }
+    .dark-ctx .btn-secondary:hover {
+      background: rgba(18,219,255,0.1);
+    }
+
+    /* ============================================
+       Cards
+       ============================================ */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: var(--space-md);
+    }
+
+    .card {
+      border: 1px solid var(--ps-light-200);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      transition: box-shadow 0.3s ease, transform 0.3s ease;
+    }
+
+    .card:hover {
+      box-shadow: 0 8px 32px rgba(7,68,105,0.08);
+      transform: translateY(-2px);
+    }
+
+    .card-img {
+      height: 180px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-slab);
+      font-size: 24px;
+      font-weight: 600;
+      color: var(--ps-dark-800);
+    }
+
+    .card-body {
+      padding: var(--space-md);
+    }
+
+    .card-body h4 {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: var(--space-xs);
+    }
+
+    .card-body p {
+      font-size: 14px;
+      color: var(--ps-text-secondary);
+      line-height: 1.5;
+    }
+
+    /* ============================================
+       Tags / Pills
+       ============================================ */
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-xs);
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: var(--radius-pill);
+      border: 1px solid;
+    }
+
+    .tag-cyan { background: var(--ps-100); border-color: var(--ps-400); color: var(--ps-dark-800); }
+    .tag-yellow { background: var(--ps-yellow); border-color: #e6df6d; color: #5a5600; }
+    .tag-orange { background: var(--ps-orange); border-color: #e6b466; color: #5a4000; }
+    .tag-purple { background: var(--ps-purple); border-color: #a5a4e6; color: #2d2d66; }
+    .tag-seafoam { background: var(--ps-seafoam); border-color: #3cd1c5; color: #0f4a44; }
+    .tag-dark { background: var(--ps-dark-800); border-color: var(--ps-dark-800); color: var(--ps-400); }
+
+    /* ============================================
+       Spacing Demo
+       ============================================ */
+    .spacing-demo {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-sm);
+    }
+
+    .spacing-item {
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+    }
+
+    .spacing-bar {
+      height: 32px;
+      background: var(--ps-300);
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--ps-400);
+    }
+
+    .spacing-label {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      color: var(--ps-text-secondary);
+      white-space: nowrap;
+      min-width: 140px;
+    }
+
+    /* ============================================
+       Code Block
+       ============================================ */
+    .code-block {
+      background: var(--ps-dark-900);
+      color: var(--ps-200);
+      font-family: var(--font-mono);
+      font-size: 13px;
+      line-height: 1.7;
+      padding: var(--space-md);
+      border-radius: var(--radius-md);
+      overflow-x: auto;
+      margin-top: var(--space-sm);
+    }
+
+    .code-block .token-prop { color: var(--ps-400); }
+    .code-block .token-val { color: var(--ps-yellow); }
+    .code-block .token-comment { color: #5e8a9e; }
+
+    /* ============================================
+       Dark Section
+       ============================================ */
+    .section-dark {
+      background: var(--ps-dark-800);
+      color: var(--ps-white);
+    }
+
+    .section-dark .section-title { color: var(--ps-white); }
+    .section-dark .section-subtitle { color: var(--ps-300); }
+    .section-dark .subsection-title { color: var(--ps-white); }
+
+    /* ============================================
+       Surface Demo
+       ============================================ */
+    .surface-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: var(--space-md);
+    }
+
+    .surface {
+      padding: var(--space-md);
+      border-radius: var(--radius-lg);
+      min-height: 160px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .surface-label {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: var(--space-xs);
+    }
+
+    .surface-body {
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .surface-light {
+      background: var(--ps-white);
+      border: 1px solid var(--ps-light-200);
+      color: var(--ps-text);
+    }
+    .surface-light .surface-label { color: var(--ps-600); }
+
+    .surface-brand-light {
+      background: var(--ps-050);
+      border: 1px solid var(--ps-200);
+      color: var(--ps-dark-800);
+    }
+    .surface-brand-light .surface-label { color: var(--ps-600); }
+
+    .surface-brand-mid {
+      background: var(--ps-300);
+      color: var(--ps-dark-800);
+    }
+    .surface-brand-mid .surface-label { color: var(--ps-800); }
+
+    .surface-brand-dark {
+      background: var(--ps-dark-800);
+      color: var(--ps-white);
+    }
+    .surface-brand-dark .surface-label { color: var(--ps-400); }
+
+    /* ============================================
+       Radius Demo
+       ============================================ */
+    .radius-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-md);
+    }
+
+    .radius-item {
+      text-align: center;
+    }
+
+    .radius-box {
+      width: 80px;
+      height: 80px;
+      background: var(--ps-100);
+      border: 2px solid var(--ps-400);
+      margin-bottom: var(--space-xs);
+    }
+
+    .radius-item span {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--ps-text-secondary);
+    }
+
+    /* ============================================
+       Icon Demo
+       ============================================ */
+    .icon-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-md);
+    }
+
+    .icon-demo {
+      width: 64px;
+      height: 64px;
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .icon-demo svg {
+      width: 28px;
+      height: 28px;
+    }
+
+    /* ============================================
+       Footer
+       ============================================ */
+    .footer {
+      background: var(--ps-dark-900);
+      color: var(--ps-300);
+      padding: var(--space-xl) 0 var(--space-md);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: var(--space-lg);
+      margin-bottom: var(--space-lg);
+    }
+
+    .footer-brand {
+      font-family: var(--font-slab);
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--ps-white);
+      margin-bottom: var(--space-sm);
+    }
+
+    .footer p {
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .footer h5 {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ps-400);
+      margin-bottom: var(--space-sm);
+    }
+
+    .footer ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .footer a {
+      color: var(--ps-300);
+      font-size: 14px;
+    }
+    .footer a:hover { color: var(--ps-white); }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: var(--space-sm);
+      font-size: 13px;
+      color: rgba(255,255,255,0.4);
+      display: flex;
+      justify-content: space-between;
+    }
+
+    /* ============================================
+       Responsive
+       ============================================ */
+    @media (max-width: 768px) {
+      .hero-title { font-size: 40px; }
+      .type-h1 { font-size: 40px; }
+      .type-h2 { font-size: 28px; }
+      .type-h3 { font-size: 24px; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==========================================
+       NAVIGATION
+       ========================================== -->
+  <nav class="nav">
+    <div class="container">
+      <div class="nav-brand">PeakSpan Brand</div>
+      <ul class="nav-links">
+        <li><a href="#colors">Colors</a></li>
+        <li><a href="#typography">Typography</a></li>
+        <li><a href="#buttons">Buttons</a></li>
+        <li><a href="#tags">Tags</a></li>
+        <li><a href="#cards">Cards</a></li>
+        <li><a href="#surfaces">Surfaces</a></li>
+        <li><a href="#spacing">Spacing</a></li>
+        <li><a href="#tokens">Tokens</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ==========================================
+       HERO
+       ========================================== -->
+  <header class="hero">
+    <div class="container">
+      <p class="hero-eyebrow">Brand Style Guide</p>
+      <h1 class="hero-title">PeakSpan <span>Capital</span></h1>
+      <p class="hero-description">
+        The definitive reference for PeakSpan's visual identity - colors, typography, components, and design tokens extracted from the live brand system.
+      </p>
+    </div>
+  </header>
+
+  <!-- ==========================================
+       COLORS
+       ========================================== -->
+  <section class="section" id="colors">
+    <div class="container">
+      <h2 class="section-title">Color Palette</h2>
+      <p class="section-subtitle">The PeakSpan palette anchors on a vivid cyan primary with a rich dark blue base. Warm accents add energy and distinction.</p>
+
+      <!-- Brand Blues -->
+      <div class="subsection">
+        <h3 class="subsection-title">Brand Blues</h3>
+        <div class="swatch-grid">
+          <div class="swatch">
+            <div class="swatch-color" style="background:#f1fdff;"></div>
+            <div class="swatch-info">
+              <div class="swatch-name">050</div>
+              <div class="swatch-hex">#f1fdff</div>
+              <div class="swatch-token">--ps-050</div>
+            </div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-color" style="background:#e3f9fd;"></div>
+            <div class="swatch-info">
+              <div class="swatch-name">100</div>
+              <div class="swatch-hex">#e3f9fd</div>
+              <div class="swatch-token">--ps-100</div>
+            </div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-color" style="background:#d7f2f9;"></div>
+            <div class="swatch-info">
+              <div class="swatch-name">200</div>
+              <div class="swatch-hex">#d7f2f9</div>
+              <div class="swatch-token">--ps-200</div>
+            </div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-color" style="background:#a0ddff;"></div>
+            <div class="swatch-info">
+              <div class="swatch-name">300</div>
+              <div class="swatch-hex">#a0ddff</div>
+              <div class="swatch-token">--ps-300</div>
+            </div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-color" style="background:#12dbff; color:#074469;">
+            </div>
+            <div class="swatch-info">
+              <div class="swatch-name">400 (Primary)</div>
+              <div class="swatch-hex">#12dbff</div>
+              <div class="swatch-token">--ps-400</div>
+            </div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-color" style="background:#007dc9; color:white;">
+            </div>
+            <div class="swatch-info">
+              <div class="swatch-name">600</div>
+              <div class="swatch-hex">#007dc9</div>
+              <div class="swatch-token">--ps-600</div>
+            </div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-color" style="background:#074469; color:white;">
+            </div>
+            <div class="swatch-info">
+              <div class="swatch-name">800 (Dark)</div>
+              <div class="swatch-hex">#074469</div>
+              <div class="swatch-token">--ps-800</div>
+            </div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-color" style="background:#042d46; color:white;">
+            </div>
+            <div class="swatch-info">
+              <div class="swatch-name">900</div>
+              <div class="swatch-hex">#042d46</div>
+              <div class="swatch-token">--ps-dark-900</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Accent Colors -->
+      <div class="subsection">
+        <h3 class="subsection-title">Accent Colors</h3>
+        <div class="swatch-grid">
+          <div class="swatch">
+            <div class="swatch-color" style="background:#fff879;"></div>
+            <div class="swatch-info">
+              <div class="swatch-name">Yellow</div>
+              <div class="swatch-hex">#fff879</div>
+              <div class="swatch-token">--ps-yellow</div>
+            </div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-color" style="background:#ffc972;"></div>
+            <div class="swatch-info">
+              <div class="swatch-name">Orange</div>
+              <div class="swatch-hex">#ffc972</div>
+              <div class="swatch-token">--ps-orange</div>
+            </div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-color" style="background:#b9b8ff;"></div>
+            <div class="swatch-info">
+              <div class="swatch-name">Purple</div>
+              <div class="swatch-hex">#b9b8ff</div>
+              <div class="swatch-token">--ps-purple</div>
+            </div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-color" style="background:#4aeadc;"></div>
+            <div class="swatch-info">
+              <div class="swatch-name">Seafoam</div>
+              <div class="swatch-hex">#4aeadc</div>
+              <div class="swatch-token">--ps-seafoam</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Secondary Greens -->
+      <div class="subsection">
+        <h3 class="subsection-title">Secondary Greens</h3>
+        <div class="swatch-grid">
+          <div class="swatch">
+            <div class="swatch-color" style="background:#e4ffe6;"></div>
+            <div class="swatch-info">
+              <div class="swatch-name">Green 200</div>
+              <div class="swatch-hex">#e4ffe6</div>
+              <div class="swatch-token">--ps-green-200</div>
+            </div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-color" style="background:#00ff11;"></div>
+            <div class="swatch-info">
+              <div class="swatch-name">Green 500</div>
+              <div class="swatch-hex">#00ff11</div>
+              <div class="swatch-token">--ps-green-500</div>
+            </div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-color" style="background:#1c5040; color:white;"></div>
+            <div class="swatch-info">
+              <div class="swatch-name">Green 800</div>
+              <div class="swatch-hex">#1c5040</div>
+              <div class="swatch-token">--ps-green-800</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Neutrals -->
+      <div class="subsection">
+        <h3 class="subsection-title">Neutrals</h3>
+        <div class="swatch-grid">
+          <div class="swatch">
+            <div class="swatch-color" style="background:#ffffff; border-bottom:1px solid #e2edef;"></div>
+            <div class="swatch-info">
+              <div class="swatch-name">White</div>
+              <div class="swatch-hex">#ffffff</div>
+              <div class="swatch-token">--ps-white</div>
+            </div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-color" style="background:#f6f6ee;"></div>
+            <div class="swatch-info">
+              <div class="swatch-name">Neutral 200</div>
+              <div class="swatch-hex">#f6f6ee</div>
+              <div class="swatch-token">--ps-neutral-200</div>
+            </div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-color" style="background:#e2edef;"></div>
+            <div class="swatch-info">
+              <div class="swatch-name">Light 200</div>
+              <div class="swatch-hex">#e2edef</div>
+              <div class="swatch-token">--ps-light-200</div>
+            </div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-color" style="background:#dfded0;"></div>
+            <div class="swatch-info">
+              <div class="swatch-name">Neutral 300</div>
+              <div class="swatch-hex">#dfded0</div>
+              <div class="swatch-token">--ps-neutral-300</div>
+            </div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-color" style="background:#222222; color:white;"></div>
+            <div class="swatch-info">
+              <div class="swatch-name">Text</div>
+              <div class="swatch-hex">#222222</div>
+              <div class="swatch-token">--ps-text</div>
+            </div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-color" style="background:#555555; color:white;"></div>
+            <div class="swatch-info">
+              <div class="swatch-name">Text Secondary</div>
+              <div class="swatch-hex">#555555</div>
+              <div class="swatch-token">--ps-text-secondary</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       TYPOGRAPHY
+       ========================================== -->
+  <section class="section" id="typography">
+    <div class="container">
+      <h2 class="section-title">Typography</h2>
+      <p class="section-subtitle">Three font families form a clear hierarchy: Montagu Slab for editorial weight, DM Sans for UI clarity, and Roboto Mono for data and labels.</p>
+
+      <div class="subsection">
+        <h3 class="subsection-title">Font Families</h3>
+        <div class="code-block">
+          <span class="token-comment">/* Headlines & editorial */</span><br>
+          <span class="token-prop">--font-slab</span>: <span class="token-val">'Montagu Slab', Georgia, serif</span>;<br><br>
+          <span class="token-comment">/* UI, body, buttons */</span><br>
+          <span class="token-prop">--font-sans</span>: <span class="token-val">'DM Sans', Arial, sans-serif</span>;<br><br>
+          <span class="token-comment">/* Labels, tags, code, data */</span><br>
+          <span class="token-prop">--font-mono</span>: <span class="token-val">'Roboto Mono', 'Trebuchet MS', monospace</span>;
+        </div>
+      </div>
+
+      <div class="subsection">
+        <h3 class="subsection-title">Type Scale</h3>
+
+        <div class="type-sample">
+          <div class="type-sample-label">H1 - Display</div>
+          <div class="type-h1">Growth-Stage Software</div>
+          <div class="type-sample-meta">Montagu Slab / 72px / Weight 600 / Line-height 1.05</div>
+        </div>
+
+        <div class="type-sample">
+          <div class="type-sample-label">H2 - Section</div>
+          <div class="type-h2">Building Iconic Companies</div>
+          <div class="type-sample-meta">Montagu Slab / 38px / Weight 600 / Line-height 1.15</div>
+        </div>
+
+        <div class="type-sample">
+          <div class="type-sample-label">H3 - Subsection</div>
+          <div class="type-h3">Portfolio Spotlight</div>
+          <div class="type-sample-meta">Montagu Slab / 32px / Weight 600 / Line-height 1.12</div>
+        </div>
+
+        <div class="type-sample">
+          <div class="type-sample-label">H4 - Card Title</div>
+          <div class="type-h4">Partnership Approach</div>
+          <div class="type-sample-meta">DM Sans / 24px / Weight 600 / Line-height 1.25</div>
+        </div>
+
+        <div class="type-sample">
+          <div class="type-sample-label">H5 - Small Heading</div>
+          <div class="type-h5">Investment Details</div>
+          <div class="type-sample-meta">DM Sans / 18px / Weight 600 / Line-height 1.33</div>
+        </div>
+
+        <div class="type-sample">
+          <div class="type-sample-label">Body</div>
+          <div class="type-body">PeakSpan Capital is a growth-stage technology investment firm that partners with exceptional B2B software companies. We help founders navigate the journey from product-market fit to category leadership.</div>
+          <div class="type-sample-meta">DM Sans / 16px / Weight 400 / Line-height 1.6</div>
+        </div>
+
+        <div class="type-sample">
+          <div class="type-sample-label">Body Small</div>
+          <div class="type-body-sm">Founded in 2015, PeakSpan manages over $3B in assets under management across multiple fund vintages.</div>
+          <div class="type-sample-meta">DM Sans / 14px / Weight 400 / Line-height 1.43</div>
+        </div>
+
+        <div class="type-sample">
+          <div class="type-sample-label">Mono / Data</div>
+          <div class="type-mono">$3.0B AUM &middot; 50+ Companies &middot; 5 Sectors</div>
+          <div class="type-sample-meta">Roboto Mono / 14px / Weight 400 / Line-height 1.6</div>
+        </div>
+
+        <div class="type-sample">
+          <div class="type-sample-label">Eyebrow</div>
+          <div class="type-eyebrow">Partnership Spotlight</div>
+          <div class="type-sample-meta">Roboto Mono / 13px / Weight 500 / Tracking 0.1em / Uppercase</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       BUTTONS
+       ========================================== -->
+  <section class="section" id="buttons">
+    <div class="container">
+      <h2 class="section-title">Buttons</h2>
+      <p class="section-subtitle">Pill-shaped buttons with clear hierarchy. The primary cyan CTA draws focus while secondary and ghost variants support without competing.</p>
+
+      <div class="subsection">
+        <h3 class="subsection-title">Light Background</h3>
+        <div class="button-row">
+          <a href="#" class="btn btn-primary">Primary Action</a>
+          <a href="#" class="btn btn-secondary">Secondary</a>
+          <a href="#" class="btn btn-dark">Dark</a>
+          <a href="#" class="btn btn-ghost">Ghost Link &rarr;</a>
+        </div>
+      </div>
+
+      <div class="subsection">
+        <h3 class="subsection-title">Small Variant</h3>
+        <div class="button-row">
+          <a href="#" class="btn btn-primary btn-sm">Small Primary</a>
+          <a href="#" class="btn btn-secondary btn-sm">Small Secondary</a>
+          <a href="#" class="btn btn-dark btn-sm">Small Dark</a>
+        </div>
+      </div>
+
+      <div class="subsection dark-ctx" style="background:var(--ps-dark-800); padding:var(--space-md); border-radius:var(--radius-lg); margin-top:var(--space-lg);">
+        <h3 class="subsection-title" style="color:white;">Dark Background</h3>
+        <div class="button-row">
+          <a href="#" class="btn btn-primary">Primary Action</a>
+          <a href="#" class="btn btn-secondary">Secondary</a>
+          <a href="#" class="btn btn-ghost" style="color:var(--ps-400);">Ghost Link &rarr;</a>
+        </div>
+      </div>
+
+      <div class="subsection">
+        <h3 class="subsection-title">Token Reference</h3>
+        <div class="code-block">
+          <span class="token-comment">/* Primary */</span><br>
+          <span class="token-prop">background</span>: <span class="token-val">#12dbff</span>; <span class="token-comment">/* --ps-400 */</span><br>
+          <span class="token-prop">color</span>: <span class="token-val">#074469</span>; <span class="token-comment">/* --ps-800 */</span><br>
+          <span class="token-prop">border-radius</span>: <span class="token-val">100px</span>;<br>
+          <span class="token-prop">padding</span>: <span class="token-val">14px 28px</span>;<br>
+          <span class="token-prop">font-weight</span>: <span class="token-val">500</span>;<br><br>
+          <span class="token-comment">/* Secondary */</span><br>
+          <span class="token-prop">background</span>: <span class="token-val">transparent</span>;<br>
+          <span class="token-prop">border</span>: <span class="token-val">2px solid #12dbff</span>;<br>
+          <span class="token-prop">color</span>: <span class="token-val">#074469</span>;
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       TAGS / PILLS
+       ========================================== -->
+  <section class="section" id="tags">
+    <div class="container">
+      <h2 class="section-title">Tags & Pills</h2>
+      <p class="section-subtitle">Compact labels using Roboto Mono. Each accent color maps to a specific category for portfolio cards and data classification.</p>
+
+      <div class="subsection">
+        <div class="tag-row">
+          <span class="tag tag-cyan">B2B SaaS</span>
+          <span class="tag tag-yellow">Growth Stage</span>
+          <span class="tag tag-orange">Series B</span>
+          <span class="tag tag-purple">Enterprise</span>
+          <span class="tag tag-seafoam">Vertical SaaS</span>
+          <span class="tag tag-dark">Exited</span>
+        </div>
+      </div>
+
+      <div class="subsection">
+        <h3 class="subsection-title">Accent Color Mapping</h3>
+        <div class="code-block">
+          <span class="token-comment">/* Each accent color maps to a data-color attribute */</span><br>
+          <span class="token-prop">[data-color="cyan"]</span>&nbsp;&nbsp;&nbsp;&nbsp;bg: <span class="token-val">#e3f9fd</span> border: <span class="token-val">#12dbff</span><br>
+          <span class="token-prop">[data-color="yellow"]</span>&nbsp;&nbsp;bg: <span class="token-val">#fff879</span> border: <span class="token-val">#e6df6d</span><br>
+          <span class="token-prop">[data-color="orange"]</span>&nbsp;&nbsp;bg: <span class="token-val">#ffc972</span> border: <span class="token-val">#e6b466</span><br>
+          <span class="token-prop">[data-color="purple"]</span>&nbsp;&nbsp;bg: <span class="token-val">#b9b8ff</span> border: <span class="token-val">#a5a4e6</span><br>
+          <span class="token-prop">[data-color="seafoam"]</span> bg: <span class="token-val">#4aeadc</span> border: <span class="token-val">#3cd1c5</span><br>
+          <span class="token-prop">[data-color="dark"]</span>&nbsp;&nbsp;&nbsp;&nbsp;bg: <span class="token-val">#074469</span> text: <span class="token-val">#12dbff</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       CARDS
+       ========================================== -->
+  <section class="section" id="cards">
+    <div class="container">
+      <h2 class="section-title">Cards</h2>
+      <p class="section-subtitle">Portfolio company cards use accent-colored headers with consistent padding and subtle hover elevation.</p>
+
+      <div class="card-grid">
+        <div class="card">
+          <div class="card-img" style="background:var(--ps-yellow);">Company A</div>
+          <div class="card-body">
+            <h4>Portfolio Company</h4>
+            <p>B2B SaaS platform helping enterprises manage their cloud infrastructure with automated compliance and security monitoring.</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-img" style="background:var(--ps-purple);">Company B</div>
+          <div class="card-body">
+            <h4>Growth Partner</h4>
+            <p>Vertical SaaS solution for the hospitality industry, providing revenue management and guest experience optimization.</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-img" style="background:var(--ps-seafoam);">Company C</div>
+          <div class="card-body">
+            <h4>Scaling Together</h4>
+            <p>Enterprise communication platform that unifies customer interactions across channels with AI-powered analytics.</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-img" style="background:var(--ps-orange);">Company D</div>
+          <div class="card-body">
+            <h4>Category Leader</h4>
+            <p>Learning management system serving mid-market companies with personalized training paths and skill assessments.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       SURFACES
+       ========================================== -->
+  <section class="section" id="surfaces">
+    <div class="container">
+      <h2 class="section-title">Surfaces</h2>
+      <p class="section-subtitle">Four surface tiers create depth and hierarchy across the page. Dark surfaces use cyan accents for contrast.</p>
+
+      <div class="surface-grid">
+        <div class="surface surface-light">
+          <div class="surface-label">Light Surface</div>
+          <div class="surface-body">White background with subtle border. Default for content areas, cards, and forms.<br><br><strong>bg:</strong> #ffffff<br><strong>border:</strong> #e2edef</div>
+        </div>
+        <div class="surface surface-brand-light">
+          <div class="surface-label">Brand Light</div>
+          <div class="surface-body">Lightest brand tint for highlighted sections and feature callouts.<br><br><strong>bg:</strong> #f1fdff<br><strong>border:</strong> #d7f2f9</div>
+        </div>
+        <div class="surface surface-brand-mid">
+          <div class="surface-label">Brand Mid</div>
+          <div class="surface-body">Medium blue for emphasis blocks and stat sections.<br><br><strong>bg:</strong> #a0ddff</div>
+        </div>
+        <div class="surface surface-brand-dark">
+          <div class="surface-label">Brand Dark</div>
+          <div class="surface-body">Deep blue for hero sections, footers, and high-contrast areas.<br><br><strong>bg:</strong> #074469</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       SPACING & RADIUS
+       ========================================== -->
+  <section class="section" id="spacing">
+    <div class="container">
+      <h2 class="section-title">Spacing & Radius</h2>
+      <p class="section-subtitle">A consistent 8px-based spacing scale and a small set of border radius values.</p>
+
+      <div class="subsection">
+        <h3 class="subsection-title">Spacing Scale</h3>
+        <div class="spacing-demo">
+          <div class="spacing-item">
+            <div class="spacing-label">xs - 8px</div>
+            <div class="spacing-bar" style="width:8px;"></div>
+          </div>
+          <div class="spacing-item">
+            <div class="spacing-label">sm - 16px</div>
+            <div class="spacing-bar" style="width:16px;"></div>
+          </div>
+          <div class="spacing-item">
+            <div class="spacing-label">md - 24px</div>
+            <div class="spacing-bar" style="width:24px;"></div>
+          </div>
+          <div class="spacing-item">
+            <div class="spacing-label">lg - 40px</div>
+            <div class="spacing-bar" style="width:40px;"></div>
+          </div>
+          <div class="spacing-item">
+            <div class="spacing-label">xl - 64px</div>
+            <div class="spacing-bar" style="width:64px;"></div>
+          </div>
+          <div class="spacing-item">
+            <div class="spacing-label">2xl - 96px</div>
+            <div class="spacing-bar" style="width:96px;"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="subsection">
+        <h3 class="subsection-title">Border Radius</h3>
+        <div class="radius-grid">
+          <div class="radius-item">
+            <div class="radius-box" style="border-radius:4px;"></div>
+            <span>4px (sm)</span>
+          </div>
+          <div class="radius-item">
+            <div class="radius-box" style="border-radius:8px;"></div>
+            <span>8px (md)</span>
+          </div>
+          <div class="radius-item">
+            <div class="radius-box" style="border-radius:16px;"></div>
+            <span>16px (lg)</span>
+          </div>
+          <div class="radius-item">
+            <div class="radius-box" style="border-radius:100px;"></div>
+            <span>100px (pill)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       DESIGN TOKENS
+       ========================================== -->
+  <section class="section section-dark" id="tokens">
+    <div class="container">
+      <h2 class="section-title">Design Tokens</h2>
+      <p class="section-subtitle">Copy-paste ready CSS custom properties for implementing the PeakSpan brand system.</p>
+
+      <div class="code-block" style="background:#021e30;">
+        <span class="token-comment">/* ============================</span><br>
+        <span class="token-comment">&nbsp;&nbsp;&nbsp;PeakSpan Capital - Tokens</span><br>
+        <span class="token-comment">&nbsp;&nbsp;&nbsp;============================ */</span><br><br>
+        :root {<br>
+        &nbsp;&nbsp;<span class="token-comment">/* Brand Blues */</span><br>
+        &nbsp;&nbsp;<span class="token-prop">--ps-050</span>: <span class="token-val">#f1fdff</span>;<br>
+        &nbsp;&nbsp;<span class="token-prop">--ps-100</span>: <span class="token-val">#e3f9fd</span>;<br>
+        &nbsp;&nbsp;<span class="token-prop">--ps-200</span>: <span class="token-val">#d7f2f9</span>;<br>
+        &nbsp;&nbsp;<span class="token-prop">--ps-300</span>: <span class="token-val">#a0ddff</span>;<br>
+        &nbsp;&nbsp;<span class="token-prop">--ps-400</span>: <span class="token-val">#12dbff</span>;<br>
+        &nbsp;&nbsp;<span class="token-prop">--ps-600</span>: <span class="token-val">#007dc9</span>;<br>
+        &nbsp;&nbsp;<span class="token-prop">--ps-800</span>: <span class="token-val">#074469</span>;<br><br>
+        &nbsp;&nbsp;<span class="token-comment">/* Accents */</span><br>
+        &nbsp;&nbsp;<span class="token-prop">--ps-yellow</span>: <span class="token-val">#fff879</span>;<br>
+        &nbsp;&nbsp;<span class="token-prop">--ps-orange</span>: <span class="token-val">#ffc972</span>;<br>
+        &nbsp;&nbsp;<span class="token-prop">--ps-purple</span>: <span class="token-val">#b9b8ff</span>;<br>
+        &nbsp;&nbsp;<span class="token-prop">--ps-seafoam</span>: <span class="token-val">#4aeadc</span>;<br><br>
+        &nbsp;&nbsp;<span class="token-comment">/* Secondary Greens */</span><br>
+        &nbsp;&nbsp;<span class="token-prop">--ps-green-200</span>: <span class="token-val">#e4ffe6</span>;<br>
+        &nbsp;&nbsp;<span class="token-prop">--ps-green-500</span>: <span class="token-val">#00ff11</span>;<br>
+        &nbsp;&nbsp;<span class="token-prop">--ps-green-800</span>: <span class="token-val">#1c5040</span>;<br><br>
+        &nbsp;&nbsp;<span class="token-comment">/* Typography */</span><br>
+        &nbsp;&nbsp;<span class="token-prop">--font-slab</span>: <span class="token-val">'Montagu Slab', Georgia, serif</span>;<br>
+        &nbsp;&nbsp;<span class="token-prop">--font-sans</span>: <span class="token-val">'DM Sans', Arial, sans-serif</span>;<br>
+        &nbsp;&nbsp;<span class="token-prop">--font-mono</span>: <span class="token-val">'Roboto Mono', monospace</span>;<br>
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       INTERACTION PATTERNS
+       ========================================== -->
+  <section class="section" id="interactions">
+    <div class="container">
+      <h2 class="section-title">Interaction Patterns</h2>
+      <p class="section-subtitle">Consistent animation timing and hover behaviors across the brand system.</p>
+
+      <div class="subsection">
+        <h3 class="subsection-title">Navigation</h3>
+        <div class="code-block">
+          <span class="token-comment">/* Navbar scroll reveal */</span><br>
+          <span class="token-prop">background</span>: <span class="token-val">transparent</span> &rarr; <span class="token-val">rgba(255,255,255,0.95)</span>;<br>
+          <span class="token-prop">backdrop-filter</span>: <span class="token-val">blur(0px)</span> &rarr; <span class="token-val">blur(5px)</span>;<br>
+          <span class="token-prop">transition</span>: <span class="token-val">0.3s ease</span>;<br>
+          <span class="token-prop">border-bottom</span>: <span class="token-val">2px solid #12dbff</span>;<br>
+        </div>
+      </div>
+
+      <div class="subsection">
+        <h3 class="subsection-title">Cards & Hover</h3>
+        <div class="code-block">
+          <span class="token-comment">/* Card hover lift */</span><br>
+          <span class="token-prop">transform</span>: <span class="token-val">translateY(-2px)</span>;<br>
+          <span class="token-prop">box-shadow</span>: <span class="token-val">0 8px 32px rgba(7,68,105,0.08)</span>;<br>
+          <span class="token-prop">transition</span>: <span class="token-val">0.3s ease</span>;<br><br>
+          <span class="token-comment">/* Team photo scale */</span><br>
+          <span class="token-prop">transform</span>: <span class="token-val">scale(1.05)</span>;<br>
+          <span class="token-prop">transition</span>: <span class="token-val">0.7s ease</span>;<br>
+        </div>
+      </div>
+
+      <div class="subsection">
+        <h3 class="subsection-title">Breakpoints</h3>
+        <div class="code-block">
+          <span class="token-prop">--bp-lg</span>: <span class="token-val">62em</span>&nbsp;&nbsp;<span class="token-comment">/* 992px - Desktop */</span><br>
+          <span class="token-prop">--bp-md</span>: <span class="token-val">48em</span>&nbsp;&nbsp;<span class="token-comment">/* 768px - Tablet */</span><br>
+          <span class="token-prop">--bp-sm</span>: <span class="token-val">30em</span>&nbsp;&nbsp;<span class="token-comment">/* 480px - Mobile */</span><br>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       FOOTER
+       ========================================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">PeakSpan Capital</div>
+          <p>Growth-stage technology investment firm partnering with exceptional B2B software companies.</p>
+        </div>
+        <div>
+          <h5>Brand Assets</h5>
+          <ul>
+            <li><a href="#colors">Colors</a></li>
+            <li><a href="#typography">Typography</a></li>
+            <li><a href="#buttons">Buttons</a></li>
+            <li><a href="#tags">Tags</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5>Components</h5>
+          <ul>
+            <li><a href="#cards">Cards</a></li>
+            <li><a href="#surfaces">Surfaces</a></li>
+            <li><a href="#spacing">Spacing</a></li>
+            <li><a href="#tokens">Tokens</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5>Reference</h5>
+          <ul>
+            <li><a href="#interactions">Interactions</a></li>
+            <li><a href="#">Source Site</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>Brand style guide for PeakSpan Capital</span>
+        <span>&copy; 2026</span>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
