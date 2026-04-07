@@ -276,6 +276,41 @@
       color: var(--ps-text-secondary);
     }
 
+    .swatch {
+      cursor: pointer;
+      transition: transform 0.15s ease;
+    }
+
+    .swatch:active {
+      transform: scale(0.97);
+    }
+
+    .swatch-copied {
+      position: relative;
+    }
+
+    .swatch-copied::after {
+      content: 'Copied!';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: var(--ps-dark-800);
+      color: var(--ps-400);
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 500;
+      padding: 4px 12px;
+      border-radius: var(--radius-pill);
+      pointer-events: none;
+      animation: fadeOut 1s ease forwards;
+    }
+
+    @keyframes fadeOut {
+      0%, 60% { opacity: 1; }
+      100% { opacity: 0; }
+    }
+
     .swatch-token {
       font-family: var(--font-mono);
       font-size: 11px;
@@ -1451,5 +1486,16 @@
     </div>
   </footer>
 
+  <script>
+    document.querySelectorAll('.swatch').forEach(swatch => {
+      swatch.addEventListener('click', () => {
+        const hex = swatch.querySelector('.swatch-hex')?.textContent;
+        if (!hex) return;
+        navigator.clipboard.writeText(hex);
+        swatch.classList.add('swatch-copied');
+        setTimeout(() => swatch.classList.remove('swatch-copied'), 1000);
+      });
+    });
+  </script>
 </body>
 </html>
